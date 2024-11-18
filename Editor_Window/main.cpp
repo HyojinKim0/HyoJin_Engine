@@ -8,8 +8,9 @@
 #include "..\\HyoJinEngine_SOURCE\Application.h"
 
 
+hyo::Application application;
 
-Application app;
+
 
 #define MAX_LOADSTRING 100
 
@@ -64,7 +65,8 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            
+            application.Run();
+
         }
     }
 
@@ -118,6 +120,9 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
 
+
+   application.Initialize(hWnd);// 핸들값 넘겨주기 
+    
    if (!hWnd)
    {
       return FALSE;
@@ -165,6 +170,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+
             EndPaint(hWnd, &ps);
         }
         break;
