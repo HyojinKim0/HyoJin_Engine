@@ -1,6 +1,7 @@
 #pragma once
 #include "CommonInclude.h"
 #include "HyoGameObject.h"
+
 namespace hyo
 {
 	class Application
@@ -24,8 +25,7 @@ namespace hyo
 		float mSpeed;
 
 		
-		//float mX;
-		//float mY;
+		//객체 추가시 여러 플레이어 사용가능 키조정필요 
 
 		GameObject mPlayer;
 

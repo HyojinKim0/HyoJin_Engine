@@ -1,13 +1,11 @@
 #include "Application.h"
-
+#include"HyoInput.h"
 namespace hyo
 {
 	// 초기화 이용
 	Application::Application()
 		: mHwnd(nullptr)
 		, mHdc(nullptr)
-		
-		
 	{
 
 	}
@@ -24,6 +22,8 @@ namespace hyo
 
 		mPlayer.SetPosition(0, 0);
 
+		Input::Initailize();
+
 	}
 
 	void Application::Run()
@@ -36,7 +36,8 @@ namespace hyo
 
 	void Application::Update()// 로직 업데이트 
 	{
-		
+		Input::Update();
+
 		mPlayer.Update();
 	}
 	void Application::LateUpdate()
